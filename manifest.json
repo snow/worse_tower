@@ -24,7 +24,7 @@
         "*://tower.im/members/*"
       ],
       "css": ["inject.css"],
-      "js": ["inject.js"],
+      "js" : [ "jquery-2.1.4.min.js", "inject.js" ],
       "all_frames": false,
       "run_at": "document_end"
     }
