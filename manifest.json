@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "Tower 团队内页面非法改装",
+  "description": "如题",
+  "version": "0.1.0",
+  "icons": {
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "page_action": {
+    "default_icon": "icon-19.png",
+    "default_title": "Tower 团队内页面非法改装"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts" : [
+    {
+      "matches": [
+        "*://tower.im/teams/*",
+        "*://tower.im/projects/*",
+        "*://tower.im/members/*"
+      ],
+      "css": ["inject.css"],
+      "js": ["inject.js"],
+      "all_frames": false,
+      "run_at": "document_end"
+    }
+  ]
+}

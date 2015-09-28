@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+/*
+ * tools
+ */
+.c {clear:both}
+
+/*
+ * header
+ */
+.wrapper > .header { position: fixed; z-index: 2; background-color: grey }
