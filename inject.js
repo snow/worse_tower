@@ -26,11 +26,11 @@
       title_n_guids.push([name, tid]);
     });
 
-    var jSidebar = $('<div class="wtwr-sidebar"><ul></div>');
+    var jSidebar = $('<div class="wtwr-sidebar"><ul /></div>');
     $.each(title_n_guids, function(idx, el){
       jSidebar.find('ul').append('<li><a href="#' + el[1] + '">' + el[0] + '</a></li>');
     });
-    $('.wrapper').append(jSidebar);
+    $('.wrapper').prepend(jSidebar);
   }
 
   function removeSideBar() {
