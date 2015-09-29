@@ -8,12 +8,12 @@
 /*
  * header
  */
-.wrapper > .header { 
-	position: fixed; 
+.wrapper > .header {
+	position: fixed;
 	padding: 14px;
 	margin-top: 0;
 	width: 100%;
-	z-index: 2; 
+	z-index: 2;
 	background-color: white;
 	opacity: 0.9;
 	box-shadow: 0px 4px 12px rgba(30,32,24,0.1);
@@ -23,12 +23,18 @@
 	  width: 960px;
 	  margin:0 auto;
   }
+
 /*
  * stack
  */
-  
 .simple-stack {
 	padding-top: 70px !important;
 	box-shadow: 0 2px 7px rgba(0,0,0,0.05) !important;
 	border: 1px solid #eaeaea !important;
-} 
+}
+
+.wtwr-sidebar {
+	position: fixed;
+	top: 200px;
+	left: 0
+}
