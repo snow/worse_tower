@@ -15,53 +15,47 @@
   $('.wrapper > .header > *').wrapAll('<div class="inner" />');
 
   var pageId = '';
-  function generateSidebar(jTodoSec) {
-    var title_n_guids = [];
-    jTodoSec.find('.todolists .todolist').each(function(idx, el){
-      var jTodolist = $(el);
-      var name = jTodolist.find('h4 .name').text();
-      var guid = jTodolist.data('guid');
-      var tid = 'todolist-' + guid;
-      jTodolist.attr('id', tid);
-      title_n_guids.push([name, tid]);
-    });
 
-    var jSidebar = $('<div class="wtwr-sidebar"><ul /></div>');
-    $.each(title_n_guids, function(idx, el){
-      jSidebar.find('ul').append('<li><a href="#' + el[1] + '">' + el[0] + '</a></li>');
-    });
-    $('.wrapper').prepend(jSidebar);
-  }
+  function generateSidebar() {
+    var $todolists = $('.section-todos .todolists .todolist');
 
-  function removeSideBar() {
-    $('.wtwr-sidebar').remove();
+    if ($todolists.length == 0) {
+      $('.wtwr-sidebar').remove();
+      return
+    }
+
+    var items = $todolists.map(function() {
+      var $todolist = $(this);
+      var name = $todolist.find('h4 .name').text();
+      var guid = $todolist.data('guid');
+
+      return '<li><a href="javascript:;" data-guid="' + guid + '">' + name + '</a></li>'
+    }).get();
+
+    var $sidebar = $('<div class="wtwr-sidebar"><ul>' + items.join('') + '</ul></div>');
+
+    $('.wrapper').prepend($sidebar);
   }
 
   // FIXME should try to listen to pjaxload instead of interval
-  setInterval(function(){
-    var jPage = $('.wrapper > .container > .page > .page-inner');
-    if (jPage.attr('id') != pageId) {
-      pageId = jPage.attr('id');
+  setInterval(function() {
+    var currentId = $('.wrapper > .container > .page > .page-inner').attr('id');
 
-      var jTodoSec = $('.section-todos');
-      if (jTodoSec.length) {
-        generateSidebar(jTodoSec);
-      } else {
-        removeSideBar();
-      }
+    if (pageId != currentId) {
+      generateSidebar();
+      pageId = currentId;
     }
   }, 2000);
 
-  // window.addEventListener('popstate', function(evt){
-  //   console.log(evt);
-  // });
+  $(document).on('click', '.wtwr-sidebar a', function(e) {
+    e.preventDefault();
 
-  // $(window).on('popstate', function(evt){
-  //   console.log('> w <');
-  //   console.log(evt);
-  // });
+    var guid = $(e.currentTarget).data('guid');
+    var target = $('.todolist[data-guid="' + guid + '"]');
 
-  // $(document).on('pjaxload#page-projects', function(evt){
-  //   console.log(evt);
-  // });
+    if (!target.length) return
+
+    $('body, html').scrollTop(target.offset().top - 70) ;
+  });
+
 })(jQuery);
