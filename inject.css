@@ -50,3 +50,12 @@
 .wtwr-sidebar ul li a {
 	opacity: 0.75;
 }
+
+/*
+ * tema todos
+ */
+#page-members {
+	.group-default {
+		.switch-to-todos
+	}
+}
