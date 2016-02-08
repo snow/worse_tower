@@ -62,6 +62,7 @@
     $('body, html').scrollTop(target.offset().top - 70) ;
   });
 
+  // name jQuery objects as $xxx instead of jXxx
   function addBusyPanel() {
     if($('#page-members .switch-to-busy').length > 0) { return; }
 
