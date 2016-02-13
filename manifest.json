@@ -1,16 +1,16 @@
 {
   "manifest_version": 2,
 
-  "name": "Tower 团队内页面非法改装",
-  "description": "如题。未取得彩程官方授权。",
-  "version": "0.1.2",
+  "name": "Tower.im 的非法改装 n 合 1",
+  "description": "包括抓取全团队的「今天」和「接下来」到同一个页面、fixed header 等我和我的朋友们想要的功能。",
+  "version": "0.2.0",
   "icons": {
     "48": "icon-48.png",
     "128": "icon-128.png"
   },
   "page_action": {
     "default_icon": "icon-19.png",
-    "default_title": "Tower 团队内页面非法改装"
+    "default_title": "Tower.im 的非法改装 n 合 1"
   },
   "background": {
     "scripts": ["background.js"],
