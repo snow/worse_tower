@@ -22,9 +22,9 @@
         "*://tower.im/teams/*",
         "*://tower.im/projects/*",
         "*://tower.im/members/*",
-        "*://cn.tower.im/teams/*",
-        "*://cn.tower.im/projects/*",
-        "*://cn.tower.im/members/*"
+        "*://*.tower.im/teams/*",
+        "*://*.tower.im/projects/*",
+        "*://*.tower.im/members/*"
       ],
       "css": ["inject.css"],
       "js" : [ "jquery-2.1.4.min.js", "inject.js" ],
